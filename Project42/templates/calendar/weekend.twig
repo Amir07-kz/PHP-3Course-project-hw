@@ -1,0 +1,56 @@
+<style>
+    table {
+        text-align: center;
+        width: 100%;
+    }
+    th {
+        background-color: darkgray;
+    }
+    table td, table th {
+        text-align: center;
+        width: 100px;
+        height: 50px;
+    }
+    table .weekend {
+        color: red;
+    }
+
+    h1 {
+        text-align: center;
+    }
+    h2 {
+
+    }
+</style>
+<table>
+    <tr>
+        <th>Понедельник</th>
+        <th>Вторник</th>
+        <th>Среда</th>
+        <th>Четверг</th>
+        <th>Пятница</th>
+        <th class="weekend">Суббота</th>
+        <th class="weekend">Воскресенье</th>
+    </tr>
+    <tr>
+        {% if calendar.firstday > 0 %}
+        {% for j in range(1,calendar.firstday - 1) %}
+            <td>-</td>
+        {% endfor %}
+        {% for item in calendar.items %}
+        <td class="{% if item.isWeekend %}weekend{% endif %}">
+            {{ item.day }}
+        </td>
+        {% if item.weekday == 7 %}
+    </tr>
+    <tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% if calendar.last < 7 %}
+            {% for j in range(1,7 - calendar.last) %}
+                <td>-</td>
+            {% endfor %}
+        {% endif %}
+    </tr>
+</table>

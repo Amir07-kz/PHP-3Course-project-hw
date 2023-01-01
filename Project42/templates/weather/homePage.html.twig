@@ -1,0 +1,59 @@
+{% extends '../main/base.html.twig' %}
+
+{% block title %}Weather{% endblock %}
+
+{% block body %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            overflow: scroll;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            background: #009688;;
+        }
+        .block{
+            margin: 10%;
+            font-size: 30px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        h1{
+            margin-top: 1%;
+            text-align: center;
+        }
+        input {
+            font-size: 30px;
+        }
+
+    </style>
+
+    <h1>Введите название города</h1>
+    <div class="block">
+        <div>
+            <form method="post" action="/weather/app">
+                <h2>Погода на сегодня</h2>
+                <input type="text" name="city" placeholder="Поиск">
+                <button type="submit" name="submit" value="submit" >
+                    <i>Найти</i>
+                </button>
+            </form>
+        </div>
+        <div>
+            <form method="post" action="/weather/appP">
+                <h2>Погода на 5 дней</h2>
+                <input type="text" name="city" placeholder="Поиск">
+                <button type="submit" name="submit" value="submit" >
+                    <i>Найти</i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

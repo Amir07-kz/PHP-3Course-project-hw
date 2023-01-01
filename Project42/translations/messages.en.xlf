@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="ru" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="baI_ZxO1" resname="Registration Form">
+                <source>Registration Form</source>
+                <target>Форма Регистарации</target>
+            </trans-unit>
+            <trans-unit id="baI_ZxO2" resname="Clothing and footwear">
+                <source>Clothing and footwear</source>
+                <target>Одежда и обувь</target>
+            </trans-unit>
+<!--            <trans-unit id="baI_ZxO3" resname="Electronics">-->
+<!--                <source>Electronics</source>-->
+<!--                <target>Электроника</target>-->
+<!--            </trans-unit>-->
+<!--            <trans-unit id="baI_ZxO4" resname="House and garden">-->
+<!--                <source>House and garden</source>-->
+<!--                <target>Дом и сад</target>-->
+<!--            </trans-unit>-->
+<!--            <trans-unit id="baI_ZxO5" resname="Children's products">-->
+<!--                <source>Children's products</source>-->
+<!--                <target>Детские товары</target>-->
+<!--            </trans-unit>-->
+<!--            <trans-unit id="baI_ZxO6" resname="Ozone map">-->
+<!--                <source>Ozone map</source>-->
+<!--                <target>Озон карта</target>-->
+<!--            </trans-unit>-->
+<!--            <trans-unit id="baI_ZxO7" resname="Sign in">-->
+<!--                <source>Sign in</source>-->
+<!--                <target>Войти</target>-->
+<!--            </trans-unit>-->
+<!--            <trans-unit id="baI_ZxO8" resname="Busket">-->
+<!--                <source>Busket</source>-->
+<!--                <target>Корзина</target>-->
+<!--            </trans-unit>-->
+        </body>
+    </file>
+</xliff>

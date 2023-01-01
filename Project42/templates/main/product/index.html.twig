@@ -1,0 +1,103 @@
+{% extends 'main/base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+{% block page_keywords %}Jeans, Jackets{% endblock %}
+{% block page_description %}Ozon fresh{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner banner-big">
+                    <a href="#">
+                        <img src="{{ asset('StylesImgs/images/banner/collection/sales.jpeg') }}" alt="banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h2 class="banner-title">
+                            Акции
+                        </h2>
+                        <a href="#" class="btn btn-link">
+                            Посмотреть
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="banner banner-big">
+                    <a href="#">
+                        <img src="{{ asset('StylesImgs/images/banner/collection/sizon.jpeg') }}" alt="banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h3 class="banner-subtitle">
+                            Скидка 50%
+                        </h3>
+                        <h2 class="banner-title">
+                            Сезонная продукция
+                        </h2>
+                        <a href="#" class="btn btn-link">
+                            Посмотреть
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-1 justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="banner banner-middle">
+                    <a href="#">
+                        <img src="{{ asset('StylesImgs/images/banner/collection/') }}" alt="banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h3 class="banner-subtitle">
+
+                        </h3>
+                        <a href="#" class="btn btn-link">
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="banner banner-middle">
+                    <a href="#">
+                        <img src="{{ asset('StylesImgs/images/banner/collection/') }}" alt="banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h3 class="banner-subtitle">
+
+                        </h3>
+                        <a href="#" class="btn btn-link">
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="banner banner-middle">
+                    <a href="#">
+                        <img src="{{ asset('StylesImgs/images/banner/collection/') }}" alt="banner">
+                    </a>
+
+                    <div class="banner-content">
+                        <h3 class="banner-subtitle text-white">
+
+                        </h3>
+                        <a href="#" class="btn btn-link">
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

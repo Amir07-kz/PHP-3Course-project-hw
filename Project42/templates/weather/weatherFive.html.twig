@@ -1,0 +1,211 @@
+{% extends '../main/base.html.twig' %}
+
+{% block title %}Weather five day{% endblock %}
+
+{% block body %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            background: #009688;;
+        }
+
+        ul {
+            font-size: 30px;
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .down {
+            margin-top: 10%;
+        }
+
+        .back {
+            font-size: 50px;
+            width: 50px;
+            background-color: #009688;
+            border: none;
+        }
+        div.widget3 {
+            position: relative;
+            width: 90%;
+            height: 30% ;
+            margin: 50px auto;
+            background-color: #fcfdfd;
+            border-radius: 9px;
+            padding: 25px;
+            padding-right: 30px;
+            box-shadow: 0px 31px 35px -26px #080c21;
+        }
+
+        ul {
+            font-size: 30px;
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+        }
+
+        .down {
+            margin-top: 10%;
+        }
+
+        .back {
+            font-size: 50px;
+            width: 50px;
+            background-color: #009688;
+            border: none;
+        }
+
+        .widget3 .down{
+            margin: 0;
+        }
+
+    </style>
+
+    <input class="back" onclick="history.back();" value="←"/>
+    <div class="widget3">
+        <div style="padding-left: 33%">
+            <h1 style="padding: 5%">Погода на 5 дней </h1>
+        </div>
+        <hr>
+        <ul class="down">
+            <div class="flex-column">
+                <p class="mb-0">{{ days[0].date |date("D d") }} </p>
+                <img src="{{ ImgWeather1Day }}" width="50px">
+                <p class="small"><strong>{{ days[0].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[0].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[0].hour[2].time|date("h:i") }} | {{ days[0].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[4].time|date("h:i") }} | {{ days[0].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[6].time|date("h:i") }} | {{ days[0].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[8].time|date("h:i") }} | {{ days[0].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[10].time|date("h:i") }} | {{ days[0].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[12].time|date("h:i") }} | {{ days[0].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[1].date |date("D d") }}</p>
+                <img src="{{ ImgWeather2Day }}" width="50px">
+                <p class="small"><strong>{{ days[1].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[1].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[1].hour[2].time|date("h:i") }} | {{ days[1].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[4].time|date("h:i") }} |{{ days[1].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[6].time|date("h:i") }} |{{ days[1].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[8].time|date("h:i") }} |{{ days[1].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[10].time|date("h:i") }} |{{ days[1].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[12].time|date("h:i") }}  |{{ days[1].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[2].date |date("D d") }}</p>
+                <img src="{{ ImgWeather3Day }}" width="50px">
+                <p class="small"><strong>{{ days[2].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[2].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[2].hour[2].time|date("h:i") }} | {{ days[2].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[4].time|date("h:i") }} |{{ days[2].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[6].time|date("h:i") }} |{{ days[2].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[8].time|date("h:i") }} |{{ days[2].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[10].time|date("h:i") }} |{{ days[2].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[12].time|date("h:i") }}  |{{ days[2].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[3].date |date("D d") }}</p>
+                <img src="{{ ImgWeather3Day }}" width="50px">
+                <p class="small"><strong>{{ days[3].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[3].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[3].hour[2].time|date("h:i") }} | {{ days[3].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[4].time|date("h:i") }} |{{ days[3].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[6].time|date("h:i") }} |{{ days[3].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[8].time|date("h:i") }} |{{ days[3].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[10].time|date("h:i") }} |{{ days[3].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[12].time|date("h:i") }}  |{{ days[3].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[4].date |date("D d") }}</p>
+                <img src="{{ ImgWeather4Day }}" width="50px">
+                <p class="small"><strong>{{ days[4].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[4].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[4].hour[2].time|date("h:i") }} | {{ days[3].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[4].time|date("h:i") }} |{{ days[3].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[6].time|date("h:i") }} |{{ days[3].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[8].time|date("h:i") }} |{{ days[3].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[10].time|date("h:i") }} |{{ days[3].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[12].time|date("h:i") }}  |{{ days[3].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+        </ul>
+    </div>
+    <input class="back" onclick="history.back();" value="←"/>
+    <div class="widget3">
+        <div style="padding-left: 33%">
+            <h1 style="padding: 5%">Погода на 5 дней </h1>
+        </div>
+        <hr>
+        <ul class="down">
+            <div class="flex-column">
+                <p class="mb-0">{{ days[0].date |date("D d") }} </p>
+                <img src="{{ ImgWeather1Day }}" width="50px">
+                <p class="small"><strong>{{ days[0].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[0].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[0].hour[2].time|date("h:i") }} | {{ days[0].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[4].time|date("h:i") }} | {{ days[0].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[6].time|date("h:i") }} | {{ days[0].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[8].time|date("h:i") }} | {{ days[0].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[10].time|date("h:i") }} | {{ days[0].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[0].hour[12].time|date("h:i") }} | {{ days[0].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[1].date |date("D d") }}</p>
+                <img src="{{ ImgWeather2Day }}" width="50px">
+                <p class="small"><strong>{{ days[1].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[1].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[1].hour[2].time|date("h:i") }} | {{ days[1].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[4].time|date("h:i") }} |{{ days[1].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[6].time|date("h:i") }} |{{ days[1].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[8].time|date("h:i") }} |{{ days[1].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[10].time|date("h:i") }} |{{ days[1].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[1].hour[12].time|date("h:i") }}  |{{ days[1].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[2].date |date("D d") }}</p>
+                <img src="{{ ImgWeather3Day }}" width="50px">
+                <p class="small"><strong>{{ days[2].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[2].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[2].hour[2].time|date("h:i") }} | {{ days[2].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[4].time|date("h:i") }} |{{ days[2].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[6].time|date("h:i") }} |{{ days[2].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[8].time|date("h:i") }} |{{ days[2].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[10].time|date("h:i") }} |{{ days[2].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[2].hour[12].time|date("h:i") }}  |{{ days[2].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[3].date |date("D d") }}</p>
+                <img src="{{ ImgWeather3Day }}" width="50px">
+                <p class="small"><strong>{{ days[3].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[3].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[3].hour[2].time|date("h:i") }} | {{ days[3].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[4].time|date("h:i") }} |{{ days[3].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[6].time|date("h:i") }} |{{ days[3].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[8].time|date("h:i") }} |{{ days[3].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[10].time|date("h:i") }} |{{ days[3].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[3].hour[12].time|date("h:i") }}  |{{ days[3].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+            <div class="flex-column">
+                <p class="mb-0">{{ days[4].date |date("D d") }}</p>
+                <img src="{{ ImgWeather4Day }}" width="50px">
+                <p class="small"><strong>{{ days[4].day.maxtemp_c|round }}°</strong>|<strong style="color: #5d5d5d">{{ days[4].day.mintemp_c|round }}°</strong></p>
+                <br>
+                <li><p class="small"><strong>{{ days[4].hour[2].time|date("h:i") }} | {{ days[3].hour[2].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[4].time|date("h:i") }} |{{ days[3].hour[4].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[6].time|date("h:i") }} |{{ days[3].hour[6].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[8].time|date("h:i") }} |{{ days[3].hour[8].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[10].time|date("h:i") }} |{{ days[3].hour[10].temp_c |round }}°C</strong></p></li>
+                <li><p class="small"><strong>{{ days[4].hour[12].time|date("h:i") }}  |{{ days[3].hour[12].temp_c |round }}°C</strong></p></li>
+            </div>
+        </ul>
+    </div>
+{% endblock %}
